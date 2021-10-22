@@ -1,0 +1,12 @@
+[could not run script]
+
+[commands:]
+
+docker container run -it ubuntu bash
+cd usr/src/
+mkdir app
+ls
+cd app
+touch index.js
+ls
+exit
