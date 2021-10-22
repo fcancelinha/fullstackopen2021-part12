@@ -1,0 +1,22 @@
+[could not run script]
+
+[commands:]
+
+** exercise 12.3 **
+
+docker start -i reverent_lewin
+cd usr/src/app
+apt-get update
+apt-get install nano
+nano index.js
+console.log("Hello World")
+ctrl+x
+y
+cat index.js
+
+** exercise 12.3 **
+
+apt-get install curl
+curl -sL https://deb.nodesource.com/setup_16.x | bash
+apt-get install -y nodejs
+node index.js
