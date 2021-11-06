@@ -1,0 +1,14 @@
+[could not run script]
+
+[commands:]
+
+docker container ls
+docker exec -it todo-backend-mongo-1 bash
+winpty docker exec -it todo-backend-mongo-1 bash
+mongo -u root -p example
+show dbs
+use the_database
+show collections
+db.todos.find({})
+db.todos.insert({"text": "inside mongo cli", "done": "true"})
+db.todos.find({})
