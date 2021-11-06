@@ -4,8 +4,13 @@ const router = express.Router();
 
 /* GET todos listing. */
 router.get('/', async (_, res) => {
-  const todos = await Todo.find({})
-  res.send(todos);
+  try{
+    const todos = await Todo.find({})
+    res.send(todos);
+  }catch(exception){
+    console.log(exception)
+  }
+  
 });
 
 /* POST todo to listing. */
@@ -21,6 +26,7 @@ const singleRouter = express.Router();
 
 const findByIdMiddleware = async (req, res, next) => {
   const { id } = req.params
+
   req.todo = await Todo.findById(id)
   if (!req.todo) return res.sendStatus(404)
 
@@ -35,11 +41,27 @@ singleRouter.delete('/', async (req, res) => {
 
 /* GET todo. */
 singleRouter.get('/', async (req, res) => {
+  const todo = req.todo
+
+  if(todo){
+    return res.json(todo)
+  }
+   
   res.sendStatus(405); // Implement this
 });
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
+
+  const todo = req.body
+
+  console.log(todo)
+
+  const newTodo = await Todo.insertOne(todo)
+
+  if(!newTodo)
+    return res.status(401).json(newTodo)
+
   res.sendStatus(405); // Implement this
 });
 
