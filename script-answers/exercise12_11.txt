@@ -1,0 +1,11 @@
+[could not run script]
+
+[commands:]
+
+docker container ls
+docker exec -it todo-backend-redis-1 bash
+redis-cli KEYS count
+redis-cli GET count
+redis-cli SET count 9001
+redis-cli GET count
+redis-cli DEL count

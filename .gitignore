@@ -1,3 +1,5 @@
 Dockerfile
 docker-compose.yml
 docker-compose.dev.yml
+todo-app/todo-backend/redis_data/appendonly.aof
+todo-app/todo-backend/redis_data/dump.rdb
